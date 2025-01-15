@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import requests
 
 app = Flask(__name__)
@@ -37,6 +37,18 @@ def remove_from_favorites(hero_name):
     if hero_name in favorites:
         favorites.remove(hero_name)
     return redirect(url_for("home"))
+
+# Route to handle file download
+@app.route("/download_hero_list")
+def download_hero_list():
+    try:
+        return send_file(
+            "hero_list.txt",
+            as_attachment=True,
+            download_name="hero_list.txt",
+        )
+    except Exception as e:
+        return str(e)
 
 if __name__ == "__main__":
     app.run(debug=True)
