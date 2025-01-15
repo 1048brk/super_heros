@@ -84,7 +84,7 @@ button:hover {
 }
 
 .hero-card h3 {
-    color: #003366; /* Koyu mavi */
+    color: #1e90ff; /* acik mavi */
     font-size: 18px;
     margin: 10px 0;
 }
@@ -93,6 +93,18 @@ button:hover {
     margin: 5px 0;
     font-size: 14px;
     color: #dcdcdc;
+}
+
+/* Links for Add to Favorites */
+.hero-card a {
+    text-decoration: none;
+    color: #1e90ff; /* Açık mavi */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.hero-card a:hover {
+    color: #00bfff; /* Daha parlak mavi */
 }
 
 /* Favorites Section */
