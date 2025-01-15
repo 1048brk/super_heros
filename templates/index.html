@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Search</title>
+</head>
+<body>
+    <h1>Superhero Search Application</h1>
+    
+    <!-- Search Form -->
+    <form method="POST">
+        <input type="text" name="hero_name" placeholder="Enter superhero name" required>
+        <button type="submit">Search</button>
+    </form>
+    
+    <h2>Search Results</h2>
+    {% if hero_data %}
+        {% for hero in hero_data %}
+            <div>
+                <h3>{{ hero.name }}</h3>
+                <p>Full Name: {{ hero.biography['full-name'] or 'Unknown' }}</p>
+                <p>Place of Birth: {{ hero.biography['place-of-birth'] or 'Unknown' }}</p>
+                <p>Aliases: {{ ', '.join(hero.biography['aliases']) or 'None' }}</p>
+                <p>Gender: {{ hero.appearance['gender'] or 'Unknown' }}</p>
+                <a href="{{ url_for('add_to_favorites', hero_name=hero.name) }}">Add to Favorites</a>
+            </div>
+        {% endfor %}
+    {% elif hero_data == [] %}
+        <p>No superhero found with this name.</p>
+    {% endif %}
+
+    <h2>My Favorite Superheroes</h2>
+    {% if favorites %}
+        <ul>
+            {% for favorite in favorites %}
+                <li>
+                    {{ favorite }} 
+                    <a href="{{ url_for('remove_from_favorites', hero_name=favorite) }}">Remove</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no favorite superheroes yet.</p>
+    {% endif %}
+</body>
+</html>
