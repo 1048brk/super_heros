@@ -11,7 +11,7 @@ body {
 /* Page Title */
 h1 {
     text-align: center;
-    background-color: #003366; /* Koyu mavi */
+    background-color: #003366; /* dark blue */
     color: white;
     padding: 15px 0;
     margin-bottom: 20px;
@@ -23,7 +23,7 @@ h2 {
     color: #ffa726;
     margin: 20px 10px;
     padding-left: 10px;
-    border-left: 5px solid #003366; /* Koyu mavi */
+    border-left: 5px solid #003366; /* dark blue */
 }
 
 /* Form Styles */
@@ -36,7 +36,7 @@ input[type="text"] {
     padding: 10px;
     width: 300px;
     font-size: 16px;
-    border: 2px solid #003366; /* Koyu mavi */
+    border: 2px solid #003366; /* dark blue */
     border-radius: 4px;
     background-color: #2c2c3e;
     color: #fff;
@@ -84,7 +84,7 @@ button:hover {
 }
 
 .hero-card h3 {
-    color: #1e90ff; /* acik mavi */
+    color: #1e90ff; /* light blue */
     font-size: 18px;
     margin: 10px 0;
 }
@@ -98,13 +98,13 @@ button:hover {
 /* Links for Add to Favorites */
 .hero-card a {
     text-decoration: none;
-    color: #1e90ff; /* Açık mavi */
+    color: #1e90ff; /* light blue */
     font-weight: bold;
     font-size: 14px;
 }
 
 .hero-card a:hover {
-    color: #00bfff; /* Daha parlak mavi */
+    color: #00bfff; /* lighter blue */
 }
 
 /* Favorites Section */

@@ -6,11 +6,11 @@ app = Flask(__name__)
 # Favorites list to store saved superheroes
 favorites = []
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"]) # the main page of the application and accepts GET and POST
 def home():
     hero_data = None
     if request.method == "POST":
-        hero_name = request.form.get("hero_name")
+        hero_name = request.form.get("hero_name") # gets the hero_name from the form of index.html
         if hero_name:
             # Fetch data from the SuperHero API
             api_url = f"https://superheroapi.com/api/6e0f688aa393865955a795e87e5705bb/search/{hero_name}"
@@ -25,18 +25,19 @@ def home():
                 hero_data = []
 
     return render_template("index.html", hero_data=hero_data, favorites=favorites)
+# render_template fonction sends the data from Python to index.html.
 
 @app.route("/add_to_favorites/<hero_name>")
 def add_to_favorites(hero_name):
     if hero_name not in favorites:
         favorites.append(hero_name)
-    return redirect(url_for("home"))
+    return redirect(url_for("home")) # turns back to home page
 
 @app.route("/remove_from_favorites/<hero_name>")
 def remove_from_favorites(hero_name):
     if hero_name in favorites:
         favorites.remove(hero_name)
-    return redirect(url_for("home"))
+    return redirect(url_for("home")) # turns back to home page
 
 # Route to handle file download
 @app.route("/download_hero_list")

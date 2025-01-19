@@ -10,6 +10,7 @@
     <h1>Superhero Search Application</h1>
     
     <!-- Search Form -->
+    <!-- "POST" send the data to backend -->
     <form method="POST">
         <input type="text" name="hero_name" placeholder="Enter superhero name" required>
         <button type="submit">Search</button>
@@ -39,7 +40,7 @@
             {% endfor %}
         </div>
     {% elif hero_data == [] %}
-        <p>No superhero found with this name.</p>
+        <p>No superhero found with this name, please write another name.</p>
     {% endif %}
 
     <div class="favorites">
